@@ -1,0 +1,4 @@
+Django==1.11.13
+pytz==2018.4
+virtualenv==15.1.0
+Wand==0.4.4
