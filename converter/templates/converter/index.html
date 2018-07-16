@@ -1,14 +1,47 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
 	<title></title>
 </head>
-<h1>PDF to Image</h1>
+<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+<style type="text/css">
+.inputfile {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+.inputfile + label {
+	font-family: 'Lato', sans-serif;
+    font-size: 1.25em;
+    font-weight: 700;
+    color: white;
+    background-color: #d3394c;
+    display: inline-block;
+    cursor: pointer;
+    /*padding: 0.625rem 1.25rem;*/
+
+}
+
+.inputfile:focus + label,
+.inputfile + label:hover {
+    background-color: #722040;
+}
+
+.inputfile:focus + label {
+	outline: 1px dotted #000;
+	outline: -webkit-focus-ring-color auto 5px;
+}
+
+</style>
 <body>
-	<form method="post" enctype="multipart/form-data">
-		 {% csrf_token %}
-   		 <input type="file" name="myfile" />
-    	 <input type="submit" name="submit" value="Upload" />
-	</form>
+	<input type="file" name="file" id="file" class="inputfile" />
+	<label for="file"><img  width="1px;" src="{% static 'img/icon-upload.png'  %}"></label>
+	
+</body>
 </body>
 </html>
