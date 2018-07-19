@@ -1,0 +1,72 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+<style type="text/css">
+
+.inputfile {
+
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+.inputfile + label {
+	text-indent: 28px;
+	width: 213px;
+	height: 37px;
+	position: absolute;
+	line-height: 34px;
+	font-size: 1.4em;
+	text-align: center;
+	cursor: pointer;
+	/*font-family: 'Lato', sans-serif;
+    font-weight: 700;
+    color: white;*/
+    background-color: #d3394c;
+    display: inline-block;
+    /*padding: 0.625rem 1.25rem;*/
+
+}
+
+/*
+.inputfile:focus + label,
+.inputfile + label:hover {
+    background-color: #722040;
+}
+
+.inputfile:focus + label {
+	outline: 1px dotted #000;
+	outline: -webkit-focus-ring-color auto 5px;
+}
+*/
+
+
+
+img {
+	width: 16px;
+	left: 16px;
+	display: block;
+	position: absolute;
+	top: 50%;
+	margin-top: -10px;
+	/*left: 50%;
+	margin-left:-8px ;*/
+}
+
+</style>
+<body>
+
+	<input type="file" name="file" id="file" class="inputfile" />
+	<label for="file"><img src="{% static 'img/icon-upload.png'  %}">escolha o arquivo</label>
+
+	
+</body>
+</body>
+</html>

@@ -1,47 +1,67 @@
-{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
 	<title></title>
 </head>
-<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 <style type="text/css">
-.inputfile {
-	width: 0.1px;
-	height: 0.1px;
-	opacity: 0;
-	overflow: hidden;
-	position: absolute;
-	z-index: -1;
-}
+	.elementExample {
+	  width: 200px;
+	  height: 200px;
+	  line-height: 200px;
+	  color: #FFF;
+	  text-transform: uppercase;
+	  text-align: center;
+	  cursor: pointer;
+	}
 
-.inputfile + label {
-	font-family: 'Lato', sans-serif;
-    font-size: 1.25em;
-    font-weight: 700;
-    color: white;
-    background-color: #d3394c;
-    display: inline-block;
-    cursor: pointer;
-    /*padding: 0.625rem 1.25rem;*/
+	.elementExample_first {
+	  background-color: #6c5ce7; /*ROXA*/
+	  position: absolute;
+	}
 
-}
+	.elementExample_second {  
+	  background-color: #00b894; /*VERDE*/
+	}
 
-.inputfile:focus + label,
-.inputfile + label:hover {
-    background-color: #722040;
-}
+	.elementExample_last {
+	  background-color: #d63031; /*VERMELHA*/
+	}
 
-.inputfile:focus + label {
-	outline: 1px dotted #000;
-	outline: -webkit-focus-ring-color auto 5px;
-}
+	.elementExample-internal {
+	  width: 100px;
+	  height: 100px;
+	  line-height: 100px;
+	  background-color: #00cec9;  /*INTERNA-PEQUENINA*/
+	}
 
+	* {
+	  margin: 0;
+	  padding: 0;
+	  border: 0;
+	}
+
+	body {
+	  background-color: #b2bec3;
+	  font-family: "Open Sans", sans-serif;
+	}
+
+	ul, ol, li {
+	    list-style: none;
+	}
 </style>
 <body>
-	<input type="file" name="file" id="file" class="inputfile" />
-	<label for="file"><img  width="1px;" src="{% static 'img/icon-upload.png'  %}"></label>
-	
-</body>
+
+	  <div class="elementExample elementExample_first">
+	    Apenas uma div
+	  </div>
+
+	  <div class="elementExample elementExample_second">
+	    Apenas outra div
+	  </div>
+
+	  <div class="elementExample elementExample_last">
+	    <div class="elementExample-internal">Interna</div>
+	  </div>
+
 </body>
 </html>

@@ -22,4 +22,4 @@ def upload_pdf(request):
 				converted.save(filename=filename_output)
 
 
-	return render(request, 'converter/index.html')
+	return render(request, 'converter/index2.html')
