@@ -48,12 +48,13 @@ img {
 </style>
 <body>
 
-	<form>
-		<input type="file" name="file" id="file" class="inputfile" />
+	<form method="post" enctype="multipart/form-data">
+		{% csrf_token %}
+		<input type="file" name="myfile" id="file" class="inputfile" />
 		<label for="file"><img src="{% static 'img/icon-upload.png'  %}">escolha o pdf</label>
 
 
-		<input type="submit" value="enviar" id="button">
+		<input type="submit" name="submit" value="enviar" id="button">
 		<label  id="button-label" for="button"><img src="{% static 'img/icon-upload.png'  %}">enviar o pdf</label>
 	</form>
 

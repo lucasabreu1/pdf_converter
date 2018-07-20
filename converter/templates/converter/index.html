@@ -1,67 +1,63 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
 	<title></title>
 </head>
+<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 <style type="text/css">
-	.elementExample {
-	  width: 200px;
-	  height: 200px;
-	  line-height: 200px;
-	  color: #FFF;
-	  text-transform: uppercase;
-	  text-align: center;
-	  cursor: pointer;
-	}
 
-	.elementExample_first {
-	  background-color: #6c5ce7; /*ROXA*/
-	  position: absolute;
-	}
+input {
 
-	.elementExample_second {  
-	  background-color: #00b894; /*VERDE*/
-	}
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
 
-	.elementExample_last {
-	  background-color: #d63031; /*VERMELHA*/
-	}
+label {
+	text-indent: 24px;
+	width: 175px;
+	height: 37px;
+	position: absolute;
+	line-height: 31px;
+	font-size: 1.3em;
+	text-align: center;
+	cursor: pointer;
+	color: white;
+    background-color: #d3394c;
+    display: inline-block;
+    border-radius: 4px;
+}
 
-	.elementExample-internal {
-	  width: 100px;
-	  height: 100px;
-	  line-height: 100px;
-	  background-color: #00cec9;  /*INTERNA-PEQUENINA*/
-	}
+#button-label {
+	left: 286px;
+}
 
-	* {
-	  margin: 0;
-	  padding: 0;
-	  border: 0;
-	}
+img {
+	width: 16px;
+	left: 16px;
+	display: block;
+	position: absolute;
+	top: 50%;
+	margin-top: -10px;
+}
 
-	body {
-	  background-color: #b2bec3;
-	  font-family: "Open Sans", sans-serif;
-	}
-
-	ul, ol, li {
-	    list-style: none;
-	}
 </style>
 <body>
 
-	  <div class="elementExample elementExample_first">
-	    Apenas uma div
-	  </div>
+	<form method="post" enctype="multipart/form-data">
+		{% csrf_token %}
+		<input type="file" name="myfile" id="file" class="inputfile" />
+		<label for="file"><img src="{% static 'img/icon-upload.png'  %}">escolha o pdf</label>
 
-	  <div class="elementExample elementExample_second">
-	    Apenas outra div
-	  </div>
 
-	  <div class="elementExample elementExample_last">
-	    <div class="elementExample-internal">Interna</div>
-	  </div>
+		<input type="submit" name="submit" value="enviar" id="button">
+		<label  id="button-label" for="button"><img src="{% static 'img/icon-upload.png'  %}">enviar o pdf</label>
+	</form>
 
+</body>
 </body>
 </html>

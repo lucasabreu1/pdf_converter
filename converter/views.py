@@ -14,6 +14,9 @@ def upload_pdf(request):
 		s1,s2 = file.name.split('.')
 		new_name=s1+'.jpg'
 		USER_PROFILE = os.path.expandvars("%USERPROFILE%")
+
+		###### O DIRETORIO (C:\..Desktop/destino) , OU QUALQUER QUE SEJA CRIADO, DEVE SER CRIADO!! ######
+		
 		filename_output = os.path.join(USER_PROFILE, "Desktop", "destino", new_name);
 		with Image(file=file, resolution=300) as img:
 			print("pages= ", len(img.sequence))
@@ -22,4 +25,4 @@ def upload_pdf(request):
 				converted.save(filename=filename_output)
 
 
-	return render(request, 'converter/index2.html')
+	return render(request, 'converter/index.html')
