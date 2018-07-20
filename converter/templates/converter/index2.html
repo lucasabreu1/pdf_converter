@@ -7,7 +7,7 @@
 <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 <style type="text/css">
 
-.inputfile {
+input {
 
 	width: 0.1px;
 	height: 0.1px;
@@ -17,37 +17,24 @@
 	z-index: -1;
 }
 
-.inputfile + label {
-	text-indent: 28px;
-	width: 213px;
+label {
+	text-indent: 24px;
+	width: 175px;
 	height: 37px;
 	position: absolute;
-	line-height: 34px;
-	font-size: 1.4em;
+	line-height: 31px;
+	font-size: 1.3em;
 	text-align: center;
 	cursor: pointer;
-	/*font-family: 'Lato', sans-serif;
-    font-weight: 700;
-    color: white;*/
+	color: white;
     background-color: #d3394c;
     display: inline-block;
-    /*padding: 0.625rem 1.25rem;*/
-
+    border-radius: 4px;
 }
 
-/*
-.inputfile:focus + label,
-.inputfile + label:hover {
-    background-color: #722040;
+#button-label {
+	left: 286px;
 }
-
-.inputfile:focus + label {
-	outline: 1px dotted #000;
-	outline: -webkit-focus-ring-color auto 5px;
-}
-*/
-
-
 
 img {
 	width: 16px;
@@ -56,17 +43,20 @@ img {
 	position: absolute;
 	top: 50%;
 	margin-top: -10px;
-	/*left: 50%;
-	margin-left:-8px ;*/
 }
 
 </style>
 <body>
 
-	<input type="file" name="file" id="file" class="inputfile" />
-	<label for="file"><img src="{% static 'img/icon-upload.png'  %}">escolha o arquivo</label>
+	<form>
+		<input type="file" name="file" id="file" class="inputfile" />
+		<label for="file"><img src="{% static 'img/icon-upload.png'  %}">escolha o pdf</label>
 
-	
+
+		<input type="submit" value="enviar" id="button">
+		<label  id="button-label" for="button"><img src="{% static 'img/icon-upload.png'  %}">enviar o pdf</label>
+	</form>
+
 </body>
 </body>
 </html>
