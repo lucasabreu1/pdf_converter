@@ -5,10 +5,15 @@
 	<title></title>
 </head>
 <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+
 <style type="text/css">
 
-input {
+body{
+	margin: 0px;
+}
 
+input {
 	width: 0.1px;
 	height: 0.1px;
 	opacity: 0;
@@ -18,45 +23,107 @@ input {
 }
 
 label {
-	text-indent: 24px;
 	width: 175px;
 	height: 37px;
-	position: absolute;
-	line-height: 31px;
+	line-height: 36px;
 	font-size: 1.3em;
 	text-align: center;
 	cursor: pointer;
 	color: white;
-    background-color: #d3394c;
+	background: rgba(1,94,150,1.00);
+    /**background-color: #d3394c;**/
     display: inline-block;
     border-radius: 4px;
 }
 
-#button-label {
-	left: 286px;
-}
-
 img {
 	width: 16px;
-	left: 16px;
-	display: block;
-	position: absolute;
-	top: 50%;
-	margin-top: -10px;
+	margin-right: 20px;
 }
+
+h1 {
+	font-family: 'Lobster', cursive;
+}
+
+form {
+	display: inline-block;
+	margin-top: 10px;
+}
+
+.wrap {
+	text-align: center;
+	margin-top: 120px;
+}
+
+#footer{
+  width:100%;
+  height:132px;
+  padding-top:20px;
+  background:rgba(1,94,150,1.00);
+  color:white;
+  font-weight:bold;
+  font-size:24px;
+  position:fixed;    /*Here's what sticks it*/
+  bottom:0px;          /*to the bottom of the window*/
+  left:0px;            /*and to the left of the window.*/
+}
+
+.rodape-jus{
+	font-weight: normal;
+	margin-left: 293px;
+
+}
+
+.rodape-jus h3{
+	font-family: "Segoe UI", Arial, sans-serif;
+	text-align: left;
+	display: inline-block;
+	font-size: 0.56em;
+}
+
+#footer-img{
+	width: 100px;
+}
+
 
 </style>
 <body>
 
-	<form method="post" enctype="multipart/form-data">
-		{% csrf_token %}
-		<input type="file" name="myfile" id="file" class="inputfile" />
-		<label for="file"><img src="{% static 'img/icon-upload.png'  %}">escolha o pdf</label>
+	<div class="wrap">
+		<div class="-wrap"></div>
+		<h1>Conversor Online<br><br>Pdf >> Jpeg</h1>
+		<form method="post" enctype="multipart/form-data">
+			{% csrf_token %}
+			<input type="file" name="myfile" id="file" class="inputfile" />
+			<label for="file"><img src="{% static 'img/icon-upload.png'  %}">escolher pdf</label>
 
 
-		<input type="submit" name="submit" value="enviar" id="button">
-		<label  id="button-label" for="button"><img src="{% static 'img/icon-upload.png'  %}">enviar o pdf</label>
-	</form>
+			<input type="submit" name="submit" value="enviar" id="button">
+			<label  id="button-label" for="button"><img src="{% static 'img/icon-download.png'  %}">gerar jpg</label>
+		</form>	
+	</div>
+	<footer id="footer">
+		<div class="rodape-jus">
+			<img id="footer-img" src="{% static 'img/justica-logo.png' %}">
+			<h3>
+				<strong>JUSTIÇA FEDERAL
+					<br>
+					Tribunal Regional Federal da 2ª Região
+				</strong>
+				<br>
+
+					Secretaria de Tecnologia da Informação
+				<br>
+					Seção de Gestão de Serviços
+
+				<br> 
+					SESERV/DISUS/STI
+			</h3>
+		</div>
+		
+
+	</footer>
+
 
 </body>
 </body>

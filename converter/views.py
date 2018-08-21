@@ -5,7 +5,8 @@ from django.core.files.storage import FileSystemStorage
 from wand.image import Image
 from django.conf import settings
 import os
-
+import time
+import subprocess
 
 #DESCOBRIR ONDE O WAND SALVA AS IMAGENS
 def upload_pdf(request):
@@ -13,16 +14,26 @@ def upload_pdf(request):
 		file = request.FILES['myfile']
 		s1,s2 = file.name.split('.')
 		new_name=s1+'.jpg'
-		USER_PROFILE = os.path.expandvars("%USERPROFILE%")
 
-		###### O DIRETORIO (C:\..Desktop/destino) , OU QUALQUER QUE SEJA CRIADO, DEVE SER CRIADO!! ######
-		
-		filename_output = os.path.join(USER_PROFILE, "Desktop", "destino", new_name);
-		with Image(file=file, resolution=300) as img:
-			print("pages= ", len(img.sequence))
-			with img.convert("jpg") as converted:
-				global new_name
-				converted.save(filename=filename_output)
+		buf = file.read()
 
+		img = Image(blob=buf, resolution=200)
+
+		img.format = 'jpeg'
+
+		response = HttpResponse(img.make_blob(), content_type="application/jpeg")
+		response['Content-Disposition'] = 'attachment; filename="{}"'.format(new_name)
+
+		return response
 
 	return render(request, 'converter/index.html')
+
+
+
+	#FAZER AMANHA
+	#buf=file.read()
+	#img=Image(blob=buff, resolution=200) apesar de resolutuion=300 era o padrao
+	#converted=img.convert('jpg')
+	#converted.save(os.path.. blabla )
+	#try retrieve blog image from converted object and send trhough http request back to
+	#client
