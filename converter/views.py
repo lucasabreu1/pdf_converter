@@ -27,13 +27,3 @@ def upload_pdf(request):
 		return response
 
 	return render(request, 'converter/index.html')
-
-
-
-	#FAZER AMANHA
-	#buf=file.read()
-	#img=Image(blob=buff, resolution=200) apesar de resolutuion=300 era o padrao
-	#converted=img.convert('jpg')
-	#converted.save(os.path.. blabla )
-	#try retrieve blog image from converted object and send trhough http request back to
-	#client
